@@ -1,0 +1,104 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body{
+  width:100%;
+  height:100%;
+  font-family:system-ui;
+  overflow:hidden;
+  background:#000;
+}
+
+.app{
+  position:relative;
+  width:100vw;
+  height:100vh;
+}
+
+/* VIDEO Y CANVAS FULLSCREEN */
+video, canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+canvas{
+  pointer-events:none;
+}
+
+/* HUD CENTRADO */
+.hud{
+  position:absolute;
+  top:40px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(15px);
+  padding:30px 50px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(0,255,255,.3);
+}
+
+h1{
+  font-size:28px;
+  letter-spacing:3px;
+  margin-bottom:25px;
+}
+
+.counters{
+  display:flex;
+  gap:40px;
+  margin-bottom:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  padding:20px 30px;
+  border-radius:20px;
+  width:220px;
+  transition:all .3s ease;
+}
+
+.card span{
+  font-size:13px;
+  opacity:0.7;
+}
+
+.card h2{
+  font-size:56px;
+  margin-top:10px;
+}
+
+.active-left{
+  box-shadow:0 0 35px #00ff88;
+  transform:scale(1.07);
+}
+
+.active-right{
+  box-shadow:0 0 35px #00aaff;
+  transform:scale(1.07);
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:15px;
+  background:#00ffff;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.08);
+}
+
+
