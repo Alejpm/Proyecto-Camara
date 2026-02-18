@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Repeticiones</title>
+
+<link rel="stylesheet" href="css/estilo.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+</head>
+<body>
+
+<div class="layout">
+
+  <div class="sidebar">
+
+    <h1>REPETICIONES</h1>
+
+    <div class="card" id="leftCard">
+      <span>BRAZO IZQUIERDO</span>
+      <h2 id="leftCount">0</h2>
+    </div>
+
+    <div class="card" id="rightCard">
+      <span>BRAZO DERECHO</span>
+      <h2 id="rightCount">0</h2>
+    </div>
+
+    <button class="main-btn" onclick="startVoice()">🎙 Activar Voz</button>
+
+    <div class="color-picker">
+      <label>Color Neon</label>
+      <input type="color" id="landmarkColor" value="#00ffff">
+    </div>
+
+    <div class="bottom-section">
+
+      <div class="export-buttons">
+        <button class="small-btn" onclick="exportJSON()">JSON</button>
+        <button class="small-btn" onclick="exportCSV()">CSV</button>
+        <button class="small-btn" onclick="exportExcel()">Excel</button>
+      </div>
+
+      <button class="info-btn" onclick="toggleHelp()">I</button>
+
+    </div>
+
+  </div>
+
+  <div class="camera-area">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas"></canvas>
+
+    <div id="pauseOverlay" class="pause-overlay">
+      ⏸
+    </div>
+  </div>
+
+</div>
+
+<div class="modal" id="helpModal">
+  <div class="modal-content">
+    <h2>Comandos de Voz</h2>
+    <ul>
+      <li>"Reinicio"</li>
+      <li>"Reinicio izquierda"</li>
+      <li>"Reinicio derecha"</li>
+      <li>"Parar conteo"</li>
+      <li>"Seguir conteo"</li>
+      <li>"Estado"</li>
+    </ul>
+    <button onclick="toggleHelp()">Cerrar</button>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+
+<script>
+function toggleHelp(){
+  document.getElementById("helpModal")
+    .classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
+
+
